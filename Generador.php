@@ -185,7 +185,7 @@ class %s extends CI_Model{
 ?>
 ';
 
-        $nombreDeArchivo = $this->directorioDeSalida . "models/" . $nombreDelModelo . ".php";
+        $nombreDeArchivo = $this->directorioDeSalida . "models/" . ucfirst($nombreDelModelo) . ".php";
         $bytesEscritos = file_put_contents($nombreDeArchivo, $codigo);
         if ($bytesEscritos !== false) {
             return $nombreDelModelo;
@@ -343,7 +343,7 @@ class %s extends CI_Model{
     }
     ?>';
 
-        $nombreDeArchivo = $this->directorioDeSalida . "/controllers/" . $nombreDeLaTabla . ".php";
+        $nombreDeArchivo = $this->directorioDeSalida . "/controllers/" . ucfirst($nombreDeLaTabla) . ".php";
         $bytesEscritos = file_put_contents($nombreDeArchivo, $codigo);
         if ($bytesEscritos !== false) {
             return $nombreDeLaTabla;
