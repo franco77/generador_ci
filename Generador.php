@@ -26,11 +26,12 @@ class Generador
 
     public function __construct($host, $usuario, $pass, $nombreDeLaBaseDeDatos, $directorioDeSalida = "generado")
     {
+        $this->fechaYHora = date("Y-m-d H:i:s");
         $this->directorioDeSalida = __DIR__ . DIRECTORY_SEPARATOR . $directorioDeSalida . DIRECTORY_SEPARATOR;
         $this->prepararDirectorioDeSalida();
+        $this->prepararEncabezados();
         $this->nombreDeLaBaseDeDatos = $nombreDeLaBaseDeDatos;
         $this->bd = new PDO("mysql:host=$host;dbname=$nombreDeLaBaseDeDatos", $usuario, $pass);
-        $this->fechaYHora = date("Y-m-d");
         $this->tablasAIgnorar = [];
     }
 
